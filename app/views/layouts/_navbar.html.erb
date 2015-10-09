@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+    <a class="navbar-brand" href="/#">Home</a>
+    <div class="navbar-collapse collapse">
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-left">
+        </ul>
+      <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li>Logged in as <strong><%= current_user.email %></strong></li>
+        <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
