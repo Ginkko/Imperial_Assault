@@ -1,1 +1,4 @@
-<h1><%= @user.email %></h1>
+<h1><%= @user.name %></h1>
+<h3>Email: <%= @user.email %></h3>
+<p>Account Created: <%= @user.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
+<p><i>Last logged in <%= time_ago_in_words(@user.last_sign_in_at) %> ago</i></p>
