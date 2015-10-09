@@ -6,6 +6,7 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      cannot :read, User
     end
 
 
