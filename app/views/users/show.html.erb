@@ -1,9 +1,11 @@
 <h1><%= @user.name %></h1>
 <h3>Current Campaigns:</h3>
 <% if @user.campaigns.any? %>
-  <% @user.campaigns.each do |campaign| %>
-    <%= link_to campaign.name, campaign_path(campaign) %>
-  <% end %>
+  <ul>
+    <% @user.campaigns.each do |campaign| %>
+      <li><%= link_to campaign.name, campaign_path(campaign) %></li>
+    <% end %>
+  </ul>
 <% else %>
   <p>
     Not currently a part of any campaigns

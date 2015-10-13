@@ -2,9 +2,11 @@
 
 <h3>Ongoing Campaigns:</h3>
 <ul>
-  <li>
-    <% @campaigns.each do |campaign| %>
+  <% @campaigns.each do |campaign| %>
+    <li>
       <%= link_to campaign.name, campaign_path(campaign) %>
-    <% end %>
-  </li>
+    </li>
+  <% end %>
 </ul>
+
+<hr>
