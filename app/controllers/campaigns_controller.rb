@@ -28,11 +28,26 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def update
+    if @campaign.update(campaign_params)
+      flash[:notice] = "Campaign Updated"
+      @campaign.errors.clear
+      render :show
+    else
+      render :edit
+    end
+  end
 
+  def destroy
+    Campaign.find(params[:id]).destroy
+    flash[:notice] = "Campaign Deleted"
+    @campaigns = Campaign.all
+    render :index
+  end
 
   private
   def campaign_params
-    params.require(:campaign).permit(:name, :player_count, {user_ids: []} )
+    params.require(:campaign).permit(:name, {user_ids: []} )
   end
 
 
