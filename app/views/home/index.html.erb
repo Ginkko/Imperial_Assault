@@ -1,1 +1,10 @@
-<h1>Hello, world!</h1>
+<h1>Imperial Assault Campaign Manager</h1>
+
+<h3>Ongoing Campaigns:</h3>
+<ul>
+  <li>
+    <% @campaigns.each do |campaign| %>
+      <%= link_to campaign.name, campaign_path(campaign) %>
+    <% end %>
+  </li>
+</ul>

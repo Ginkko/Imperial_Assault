@@ -10,9 +10,28 @@ class CampaignsController < ApplicationController
 
   end
 
+  def new
+
+  end
+
+  def edit
+
+  end
+
+  def create
+    if @campaign.save
+      flash[:notice] = "Campaign Created"
+      render :show
+    else
+      render :new
+    end
+  end
+
+
+
   private
   def campaign_params
-    params.require(:campaign).permit!
+    params.require(:campaign).permit(:name, :player_count, {user_ids: []} )
   end
 
 
