@@ -12,6 +12,7 @@
   </li>
   <% end %>
 </ul>
+<hr>
 <% if current_user %>
   <% if is_admin? || current_user.id == @campaign.created_by_id %>
     <%= link_to "Edit Campaign", edit_campaign_path(@campaign), class: "btn btn-block btn-warning " %>

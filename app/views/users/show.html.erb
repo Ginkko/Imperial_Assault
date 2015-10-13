@@ -1,4 +1,17 @@
 <h1><%= @user.name %></h1>
+<h3>Current Campaigns:</h3>
+<% if @user.campaigns.any? %>
+  <% @user.campaigns.each do |campaign| %>
+    <%= link_to campaign.name, campaign_path(campaign) %>
+  <% end %>
+<% else %>
+  <p>
+    Not currently a part of any campaigns
+  </p>
+<% end %>
+
+<hr>
+
 <h3>Email: <%= @user.email %></h3>
 <p>Account Created: <%= @user.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
-<p><i>Last logged in <%= time_ago_in_words(@user.last_sign_in_at) %> ago</i></p>
+<p class = "green bold"><i>Last logged in <%= time_ago_in_words(@user.current_sign_in_at) %> ago</i></p>
