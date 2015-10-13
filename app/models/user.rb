@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :campaigns
   has_many :characters, :through => :campaigns
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
 end
