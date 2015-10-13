@@ -1,0 +1,14 @@
+<h1>
+  <%= @campaign.name %>
+</h1>
+
+<h3>Players:
+</h3>
+
+<ul>
+  <% @campaign.users.each do |user| %>
+  <li>
+    <%= link_to user.name, user_path(user) %>
+  </li>
+  <% end %>
+</ul>

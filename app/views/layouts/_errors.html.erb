@@ -1,0 +1,11 @@
+<% if object.errors.any? %>
+    <% object.errors.full_messages.each do |message| %>
+      <% flash[:error] = message %>
+    <% end %>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="alert alert-dismisable alert-danger text-center" role="alert" style="margin-bottom: 0px;">
+    <%= flash.now[:error] %>
+  </div>
+<% end %>

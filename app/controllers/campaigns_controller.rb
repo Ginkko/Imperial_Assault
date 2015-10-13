@@ -21,6 +21,7 @@ class CampaignsController < ApplicationController
   def create
     if @campaign.save
       flash[:notice] = "Campaign Created"
+      @campaign.errors.clear
       render :show
     else
       render :new

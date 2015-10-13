@@ -1,0 +1,9 @@
+<%= render 'layouts/errors', object: @campaign %>
+<%= bootstrap_form_for(@campaign) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.collection_check_boxes(:user_ids, User.all, :id, :name, label: "Select Players:") %>
+
+  <%= f.hidden_field :created_by_id, value: current_user.id %>
+
+  <%= f.submit data: {disable_with: 'C R E A T I N G'}, class: "btn btn-block btn-primary"%>
+<% end %>
