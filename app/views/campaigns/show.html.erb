@@ -1,0 +1,21 @@
+<h1>
+  <%= @campaign.name %>
+</h1>
+
+<h3>Players:
+</h3>
+
+<ul>
+  <% @campaign.users.each do |user| %>
+  <li>
+    <%= link_to user.name, user_path(user) %>
+  </li>
+  <% end %>
+</ul>
+<hr>
+<% if current_user %>
+  <% if is_admin? || current_user.id == @campaign.created_by_id %>
+    <%= link_to "Edit Campaign", edit_campaign_path(@campaign), class: "btn btn-block btn-warning " %>
+    <%= link_to "Delete Campaign", campaign_path(@campaign), method: :delete, class: "btn btn-block btn-danger" %>
+  <% end %>
+<% end %>
